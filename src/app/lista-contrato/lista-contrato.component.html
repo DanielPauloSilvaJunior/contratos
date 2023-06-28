@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tabela de Contratos</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+</head>
+<body>
+	<div class="container">
+		<h2>Lista de Contratos</h2>
+	    
+			<form #formContrato="ngForm" (submit)="salvarContrato()">
+				<div [ngClass]="modoEdicao?'visivel':'invisivel'">
+					<div>
+					<label for="numero">Número:</label>
+					<input type="text" id="numero" name="numero" [(ngModel)]="contrato.numero" required>
+					</div>
+					<div>
+					<label for="inicio">Início:</label>
+					<input type="date" id="inicio" name="inicio" [(ngModel)]="contrato.inicio" required>
+					</div>
+					<div>
+					<label for="validade">Validade:</label>
+					<input type="date" id="validade" name="validade" [(ngModel)]="contrato.validade" required>
+					</div>
+					<div>
+					<label for="equipamentos">Equipamentos:</label>
+					<input type="text" id="equipamentos" name="equipamentos" [(ngModel)]="contrato.equipamentos" required>
+					</div>
+					<div>
+					<label for="aditivos">Aditivos:</label>
+					<input type="text" id="aditivos" name="aditivos" [(ngModel)]="contrato.aditivos" required>
+					</div>
+				</div>
+				<div class="button-bar">
+					<button (click)="iniciarInclusao($event)" id="btnIncluir" [ngClass]="modoEdicao?'invisivel':'visivel'" >Incluir Novo</button>
+	  
+					<button type="submit" id="btnConfirmar" [ngClass]="modoEdicao?'visivel':'invisivel'">Confirmar</button>
+		  
+					<button (click)="cancelarEdicao($event)" id="btnCancelar" [ngClass]="modoEdicao?'visivel':'invisivel'">Cancelar</button>
+				</div>
+				
+			</form>
+		<table>
+		  <thead>
+			<tr>
+			  <th>Número</th>
+			  <th>Início</th>
+			  <th>Validade</th>
+			  <th>Equipamentos</th>
+			  <th>Aditivos</th>
+			  <th>Ações</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let contrato of contratos">
+			  <td>{{contrato.numero}}</td>
+			  <td>{{contrato.inicio}}</td>
+			  <td>{{contrato.validade}}</td>
+			  <td>{{contrato.equipamentos}}</td>
+			  <td>{{contrato.aditivos}}</td>
+			  <td>
+				<button (click)="contrato.id !== undefined ? excluirContrato(contrato.id) : null">Excluir</button>
+				<button (click)="editarContrato(contrato)">Editar</button> 
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+	</div>
+</body>
+</html>
