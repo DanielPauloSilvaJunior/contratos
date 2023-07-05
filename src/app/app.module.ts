@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListaContratoComponent } from './lista-contrato/lista-contrato.component';
+import { EquipamentosModule } from './equipamentos/equipamentos.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ListaContratoComponent } from './lista-contrato/lista-contrato.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    EquipamentosModule
   ],
   providers: [],
   bootstrap: [AppComponent]
