@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class EquipamentoComponent {
 
+  incluirEquipamentos(nome:string):void{
+    localStorage.setItem('equipamentos',nome )
+  }
+
 }

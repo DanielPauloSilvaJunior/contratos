@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListaContratoComponent } from './lista-contrato/lista-contrato.component';
 import { EquipamentosModule } from './equipamentos/equipamentos.module';
+import { RouterModule, Routes } from '@angular/router';
+import { EquipamentoComponent } from './equipamentos/equipamento/equipamento.component';
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import { EquipamentosModule } from './equipamentos/equipamentos.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    EquipamentosModule
+    EquipamentosModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
