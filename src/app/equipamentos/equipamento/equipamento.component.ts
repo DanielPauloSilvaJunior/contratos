@@ -1,11 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
 import { Equipamento } from './equipamento.model';
 import { NgForm } from '@angular/forms';
+import { EquipamentoService } from 'src/app/services/equipamento.service';
 
 @Component({
   selector: 'app-equipamento',
   templateUrl: './equipamento.component.html',
-  styleUrls: ['./equipamento.component.css']
+  styleUrls: ['./equipamento.component.css'],
+  
 })
 export class EquipamentoComponent {
 
@@ -15,11 +17,11 @@ export class EquipamentoComponent {
   private equipamentos:Equipamento[]= [];
 
 
-  constructor() {
+  constructor(private equipamentosService:EquipamentoService) {
   }
 
   incluirEquipamentos():void{
-    console.log(this.equipamento);
+    this.equipamentosService.adicionar(this.equipamento)
   }
 
   listarEquipamentos():Equipamento[]{
@@ -31,5 +33,5 @@ export class EquipamentoComponent {
 
   }
 
-
+  
 }
