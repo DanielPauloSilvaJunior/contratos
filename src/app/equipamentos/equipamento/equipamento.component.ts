@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { Equipamento } from './equipamento.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-equipamento',
@@ -7,8 +9,27 @@ import { Component } from '@angular/core';
 })
 export class EquipamentoComponent {
 
-  incluirEquipamentos(nome:string):void{
-    localStorage.setItem('equipamentos',nome )
+  equipamento:Equipamento = new Equipamento();
+
+  
+  private equipamentos:Equipamento[]= [];
+
+
+  constructor() {
   }
+
+  incluirEquipamentos():void{
+    console.log(this.equipamento);
+  }
+
+  listarEquipamentos():Equipamento[]{
+    const equipamentosJson= localStorage.getItem('equipamentos');
+    if(equipamentosJson){
+      this.equipamentos=JSON.parse(equipamentosJson);
+    }
+    return this.equipamentos;   
+
+  }
+
 
 }

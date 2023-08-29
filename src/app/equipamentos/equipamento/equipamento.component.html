@@ -1,8 +1,10 @@
 <p>equipamento works!</p>
 
-<input type="text" id = "equipamentos" name="equipamentos">
-<button (click)="incluirEquipamentos('teste')" id="btnAddEquipamento">Adicionar</button><br />
+<form #formEquipamento="ngForm">
+    <input type="text" id="equipamentos" name="equipamentos" [(ngModel)] = "equipamento.nome">
+    <button (click)="incluirEquipamentos()" id="btnAddEquipamento">Adicionar</button><br />
+</form>
+
+
 
 <a routerLink="/contratos">voltar</a>
-
-
