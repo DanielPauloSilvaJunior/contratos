@@ -11,12 +11,21 @@ export class EquipamentoService {
 
   }
 
+  listarEquipamentos():Equipamento[]{
+    const equipamentosJson= localStorage.getItem("equipamentos")
+    if(equipamentosJson)
+      this.equipamentos = JSON.parse(equipamentosJson);
+    return this.equipamentos 
+  }
+
   adicionar(equipamento:Equipamento):void{
-    this.equipamentos.push(equipamento)
-    this.salvarEquipamentos();   
+    this.equipamentos.push(equipamento);
+    this.salvarEquipamentos(); 
   }
 
   salvarEquipamentos():void{
-    localStorage.setItem('equipamentos', JSON.stringify(this.equipamentos))
+   localStorage.setItem('equipamentos', JSON.stringify(this.equipamentos));
   }
+
 }
+
