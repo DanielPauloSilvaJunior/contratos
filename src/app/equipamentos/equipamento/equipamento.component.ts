@@ -18,10 +18,13 @@ export class EquipamentoComponent {
 
 
   constructor(private equipamentosService:EquipamentoService) {
+    console.log(equipamentosService.listarEquipamentos());
+    
   }
 
   incluirEquipamentos():void{
     this.equipamentosService.adicionar(this.equipamento)
+    this.equipamento = new Equipamento()
   }
 
   listarEquipamentos():Equipamento[]{
