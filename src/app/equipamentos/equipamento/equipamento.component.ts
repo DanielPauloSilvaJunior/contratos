@@ -11,14 +11,16 @@ import { EquipamentoService } from 'src/app/services/equipamento.service';
 })
 export class EquipamentoComponent {
 
+  titulo:string= "Cadastro de Equipamento"
+
   equipamento:Equipamento = new Equipamento();
 
   
-  private equipamentos:Equipamento[]= [];
+   equipamentos:Equipamento[]= [];
 
 
   constructor(private equipamentosService:EquipamentoService) {
-    console.log(equipamentosService.listarEquipamentos());
+    this.equipamentos=equipamentosService.listarEquipamentos();
     
   }
 
@@ -34,6 +36,10 @@ export class EquipamentoComponent {
     }
     return this.equipamentos;   
 
+  }
+
+  excluirEquipamento():void{
+    
   }
 
   

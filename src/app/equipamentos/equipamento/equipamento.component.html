@@ -1,9 +1,18 @@
-<p>equipamento works!</p>
+<p>
+    {{titulo}}
+</p>
 
 <form #formEquipamento="ngForm">
     <input type="text" id="equipamentos" name="equipamentos" [(ngModel)] = "equipamento.nome">
     <button (click)="incluirEquipamentos()" id="btnAddEquipamento">Adicionar</button><br />
 </form>
+
+<div *ngFor="let equipamento of equipamentos">
+    <p>
+        {{equipamento.nome}}
+    </p>
+    <button id="btnExcluir" (click)="excluirEquipamento()">Excluir</button>
+</div>
 
 
 
