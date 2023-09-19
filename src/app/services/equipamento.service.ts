@@ -7,6 +7,8 @@ import { Equipamento } from '../equipamentos/equipamento/equipamento.model';
 export class EquipamentoService {
   private equipamentos:Equipamento[] = [];
 
+  private lastId:number= 1;
+
   constructor() { 
 
   }
@@ -25,6 +27,21 @@ export class EquipamentoService {
 
   salvarEquipamentos():void{
    localStorage.setItem('equipamentos', JSON.stringify(this.equipamentos));
+  }
+
+  obterLastId(): number {
+    const lastId = localStorage.getItem('lastEqId');
+    if (lastId) {
+      this.lastId++
+    }else
+    {
+      localStorage.setItem('lastEqId', '1')
+    }
+    return this.lastId;
+  }
+
+  private salvarLastId(): void {
+    localStorage.setItem('lastEqId', this.lastId.toString());
   }
 
 }

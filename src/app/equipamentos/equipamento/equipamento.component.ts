@@ -38,8 +38,8 @@ export class EquipamentoComponent {
 
   }
 
-  excluirEquipamento():void{
-    
+  excluirEquipamento(equipamento:Equipamento):void{
+    this.equipamentos = this.equipamentos.filter(eq=>eq.id != equipamento.id);
   }
 
   
