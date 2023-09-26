@@ -25,6 +25,7 @@ export class EquipamentoComponent {
   }
 
   incluirEquipamentos():void{
+    this.equipamento.id = this.equipamentosService.obterLastId()
     this.equipamentosService.adicionar(this.equipamento)
     this.equipamento = new Equipamento()
   }
@@ -39,7 +40,8 @@ export class EquipamentoComponent {
   }
 
   excluirEquipamento(equipamento:Equipamento):void{
-    this.equipamentos = this.equipamentos.filter(eq=>eq.id != equipamento.id);
+    this.equipamentosService.excluirEquipamento(equipamento);
+    this.listarEquipamentos();
   }
 
   

@@ -25,6 +25,7 @@ export class ContratoService {
   adicionar(contrato: Contrato): void {
     this.contratos.push(contrato);
     this.salvarContratos();
+    this.lastId++;
     this.salvarLastId();
   }
 
@@ -48,7 +49,7 @@ export class ContratoService {
    obterLastId(): number {
     const lastId = localStorage.getItem('lastId');
     if (lastId) {
-      this.lastId++
+      this.lastId = parseInt(lastId)
     }else
     {
       localStorage.setItem('lastId', '1')

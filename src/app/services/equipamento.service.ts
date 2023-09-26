@@ -11,6 +11,8 @@ export class EquipamentoService {
 
   constructor() { 
 
+    this.obterLastId();
+
   }
 
   listarEquipamentos():Equipamento[]{
@@ -23,6 +25,8 @@ export class EquipamentoService {
   adicionar(equipamento:Equipamento):void{
     this.equipamentos.push(equipamento);
     this.salvarEquipamentos(); 
+    this.lastId++;
+    this.salvarLastId();
   }
 
   salvarEquipamentos():void{
@@ -32,7 +36,7 @@ export class EquipamentoService {
   obterLastId(): number {
     const lastId = localStorage.getItem('lastEqId');
     if (lastId) {
-      this.lastId++
+      this.lastId = parseInt(lastId)
     }else
     {
       localStorage.setItem('lastEqId', '1')
@@ -43,6 +47,13 @@ export class EquipamentoService {
   private salvarLastId(): void {
     localStorage.setItem('lastEqId', this.lastId.toString());
   }
+
+  excluirEquipamento(equipamento:Equipamento):void{
+    this.equipamentos = this.equipamentos.filter(eq=>eq.id != equipamento.id);
+    this.salvarEquipamentos();
+  }
+
+
 
 }
 
