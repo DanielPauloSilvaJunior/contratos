@@ -7,11 +7,13 @@
     <button (click)="incluirEquipamentos()" id="btnAddEquipamento">Adicionar</button><br />
 </form>
 
-<div *ngFor="let equipamento of equipamentos">
+<div class="equipamento" *ngFor="let equipamento of equipamentos">
     <p>
-        {{equipamento.nome}}
+        <input type="text" [(ngModel)]="equipamento.nome"  [ngClass]="equipamento.modoEdicao?'visivel':'invisivel'">
+        <label [ngClass]="equipamento.modoEdicao?'invisivel':'visivel'">{{equipamento.nome}}</label>
     </p>
-    <button id="btnExcluir" (click)="excluirEquipamento(equipamento)">Excluir</button>
+    <button id="btnExcluir" (click)="excluirEquipamento(equipamento)" >Excluir</button>
+    <button id="btnEditar" (click)="editarEquipamento(equipamento)" >Editar</button>
 </div>
 
 

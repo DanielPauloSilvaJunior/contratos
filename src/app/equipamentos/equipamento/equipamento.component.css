@@ -1,0 +1,20 @@
+.equipamento{
+    min-width: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.equipamento button {
+    height: 20px;
+    margin-left: 20px;
+}
+
+.visivel {
+
+    display: inline;
+  }
+
+  .invisivel {
+
+    display: none;
+  }

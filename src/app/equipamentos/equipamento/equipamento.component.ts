@@ -11,7 +11,7 @@ import { EquipamentoService } from 'src/app/services/equipamento.service';
 })
 export class EquipamentoComponent {
 
-  titulo:string= "Cadastro de Equipamento"
+  titulo:string= "Cadastro de Equipamento";
 
   equipamento:Equipamento = new Equipamento();
 
@@ -28,6 +28,7 @@ export class EquipamentoComponent {
     this.equipamento.id = this.equipamentosService.obterLastId()
     this.equipamentosService.adicionar(this.equipamento)
     this.equipamento = new Equipamento()
+    this.listarEquipamentos();
   }
 
   listarEquipamentos():Equipamento[]{
@@ -42,6 +43,14 @@ export class EquipamentoComponent {
   excluirEquipamento(equipamento:Equipamento):void{
     this.equipamentosService.excluirEquipamento(equipamento);
     this.listarEquipamentos();
+  }
+
+  editarEquipamento(equipamento:Equipamento):void{
+    equipamento.modoEdicao= true;
+  }
+
+  cancelarEdicao():void{
+    
   }
 
   
