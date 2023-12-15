@@ -60,6 +60,8 @@ export class EquipamentoComponent {
 
   salvarEquipamento(equipamento:Equipamento):void{
     equipamento.modoEdicao= false;
+    this.equipamentosService.editar(equipamento);
+    this.equipamentosService.listarEquipamentos();
   }
 
   

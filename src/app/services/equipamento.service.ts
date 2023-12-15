@@ -28,6 +28,13 @@ export class EquipamentoService {
     this.lastId++;
     this.salvarLastId();
   }
+  editar(equipamento:Equipamento):void{
+    const index = this.equipamentos.findIndex(e => e.id === equipamento.id);
+    if(index != -1){
+        this.equipamentos[index] = equipamento;
+        this.salvarEquipamentos();
+    }
+  }
 
   salvarEquipamentos():void{
    localStorage.setItem('equipamentos', JSON.stringify(this.equipamentos));
