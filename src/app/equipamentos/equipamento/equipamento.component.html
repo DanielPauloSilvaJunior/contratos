@@ -14,10 +14,10 @@
         <input type="text" [(ngModel)]="equipamento.nome"  [ngClass]="equipamento.modoEdicao?'visivel':'invisivel'">
         <label [ngClass]="equipamento.modoEdicao?'invisivel':'visivel'">{{equipamento.nome}}</label>
     </p>
-    <button id="btnExcluir" (click)="excluirEquipamento(equipamento)" >Excluir</button>
-    <button id="btnEditar" (click)="editarEquipamento(equipamento)" >Editar</button>
+    <button id="btnExcluir" (click)="excluirEquipamento(equipamento)" [ngClass]="equipamento.modoEdicao?'invisivel':'visivel'">Excluir</button>
+    <button id="btnEditar" (click)="editarEquipamento(equipamento)" [ngClass]="equipamento.modoEdicao?'invisivel':'visivel'">Editar</button>
+    <button id="btnConfirmar" (click)="salvarEquipamento(equipamento)" [ngClass]="equipamento.modoEdicao?'visivel':'invisivel'">Confirmar</button>
+    <button id="btnCancelar" (click)="cancelarEdicao(equipamento, $event)" [ngClass]="equipamento.modoEdicao?'visivel':'invisivel'">Cancelar</button>
 </div>
-
-
 
 <a routerLink="/contratos">voltar</a>

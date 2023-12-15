@@ -15,6 +15,8 @@ export class EquipamentoComponent {
 
   equipamento:Equipamento = new Equipamento();
 
+  tempEquipamento:Equipamento = new Equipamento();
+
   
    equipamentos:Equipamento[]= [];
 
@@ -47,10 +49,18 @@ export class EquipamentoComponent {
 
   editarEquipamento(equipamento:Equipamento):void{
     equipamento.modoEdicao= true;
+    this.tempEquipamento= equipamento;
   }
 
-  cancelarEdicao():void{
-    
+  cancelarEdicao(equipamento:Equipamento, event:Event):void{
+    event.preventDefault();
+    equipamento.modoEdicao= false;
+    equipamento = this.tempEquipamento;
+    this.equipamento = new Equipamento();
+  }
+
+  salvarEquipamento(equipamento:Equipamento):void{
+    equipamento.modoEdicao= false;
   }
 
   
