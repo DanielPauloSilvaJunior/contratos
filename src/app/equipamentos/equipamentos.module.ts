@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { EquipamentoComponent } from './equipamento/equipamento.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule } from '@angular/forms';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MatSlideToggleModule
   ],
   exports:[
     EquipamentoComponent

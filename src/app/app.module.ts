@@ -8,6 +8,7 @@ import { ListaContratoComponent } from './lista-contrato/lista-contrato.componen
 import { EquipamentosModule } from './equipamentos/equipamentos.module';
 import { RouterModule, Routes } from '@angular/router';
 import { EquipamentoComponent } from './equipamentos/equipamento/equipamento.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { EquipamentoComponent } from './equipamentos/equipamento/equipamento.com
     AppRoutingModule,
     FormsModule,
     EquipamentosModule,
+    BrowserAnimationsModule,
 
   ],
   providers: [],
